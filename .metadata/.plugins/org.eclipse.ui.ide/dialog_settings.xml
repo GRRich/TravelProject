@@ -3,11 +3,15 @@
 	<list key="installedFeatures">
 		<item value="com.ianbrandt.tools.m2e.mdp.feature:0.0.4.201409291703"/>
 		<item value="net.mihai-nita.ansicon:1.4.4.202102080044"/>
+		<item value="org.codehaus.groovy.eclipse.feature:4.4.0.v202112311605-e2106-RELEASE"/>
+		<item value="org.codehaus.groovy25.feature:4.4.0.v202112311605-e2106-RELEASE"/>
+		<item value="org.codehaus.groovy30.feature:4.4.0.v202112311605-e2106-RELEASE"/>
+		<item value="org.codehaus.groovy40.feature:4.4.0.v202112311605-e2106-RELEASE"/>
 		<item value="org.eclipse.buildship:3.1.5.v20210113-0929"/>
 		<item value="org.eclipse.egit.gitflow.feature:5.12.0.202106070339-r"/>
 		<item value="org.eclipse.egit:5.12.0.202106070339-r"/>
-		<item value="org.eclipse.emf.common:2.22.0.v20210319-0732"/>
-		<item value="org.eclipse.emf.ecore:2.24.0.v20210405-0628"/>
+		<item value="org.eclipse.emf.common:2.25.0.v20220123-0838"/>
+		<item value="org.eclipse.emf.ecore:2.27.0.v20220123-0838"/>
 		<item value="org.eclipse.epp.mpc:1.9.1.v20210204-1408"/>
 		<item value="org.eclipse.help:2.3.600.v20210611-1600"/>
 		<item value="org.eclipse.jdt:3.18.800.v20210611-1600"/>
@@ -31,7 +35,7 @@
 		<item value="org.eclipse.tm.terminal.feature:10.3.0.202104042017"/>
 		<item value="org.eclipse.tm.terminal.view.feature:10.3.0.202105240430"/>
 		<item value="org.eclipse.userstorage:1.2.0.v20210517-0327"/>
-		<item value="org.eclipse.wst.common.fproj:3.7.3.v202007142017"/>
+		<item value="org.eclipse.wst.common.fproj:3.7.3.v202111212041"/>
 		<item value="org.eclipse.wst.json_ui.feature:1.1.10.v202103121626"/>
 		<item value="org.eclipse.wst.web_ui.feature:3.22.0.v202105181958"/>
 		<item value="org.eclipse.wst.xml_ui.feature:3.22.0.v202103232331"/>
