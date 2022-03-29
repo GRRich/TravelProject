@@ -14,16 +14,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.simple.basic.controller.TestController;
 
-//스프링부트에서는 설정파일을 자바파일로 사용합니다
-@Configuration //스프링설정파일임을 의미
-//@PropertySource("classpath:/application.properties") 해당파일을 설정파일에서 참조
+//스프링부트에서는 설정파일을 자바 파일로 사용합니다.
+@Configuration //스프링 설정파일임을 의미 
+//@PropertySource("classpath:/application.properties") //해당파일을 설정파일에서 참조
 public class WebConfig implements WebMvcConfigurer {
-	
-	//ioc팩토리
+
+	//IOC팩토리
 	@Autowired
 	private ApplicationContext applicationContext;
 	
-	//application.properties값을 직접 참조
+	//application.properties값을 직접참조
 	@Value("${spring.datasource.url}")
 	private String url;
 	
@@ -32,11 +32,11 @@ public class WebConfig implements WebMvcConfigurer {
 	
 //	@Bean
 //	public void test() {
-//		System.out.println("테스트 빈 생성");
-//		System.out.println(url);
-//		System.out.println(port);
+//		System.out.println("테스트 빈 생성!");
+//		System.out.println("application프로퍼티 안에값:" + url);
+//		System.out.println("applicatioi프로퍼티 안에값:" + port);
 //		
-//		//ioc컨테이너 안에 객체수
+//		//IOC컨테이너 안에 객체수
 //		int count = applicationContext.getBeanDefinitionCount();
 //		System.out.println("IOC컨테이너 안에 객체수:" + count);
 //		
@@ -45,14 +45,17 @@ public class WebConfig implements WebMvcConfigurer {
 //		System.out.println("IOC컨테이너 안에 생성된 컨트롤러:" + t);
 //		System.out.println(t.test());
 //		
-//		//내부적으로 만들어진 db커넥션
+//		//내부적으로 만들어진 DB커넥션
 //		DataSource ds = applicationContext.getBean(DataSource.class);
 //		try {
 //			System.out.println(ds.getConnection());
+//		
 //		} catch (SQLException e) {
 //			e.printStackTrace();
 //		}
-//		
 //	}
-
+	
+	
+	
+	
 }

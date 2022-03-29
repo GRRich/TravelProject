@@ -30,12 +30,19 @@ dependencies {
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	
-	//화면으로 jsp를 사용하려면(뷰 리졸버 선언)	
+	//화면으로 JSP를 사용하려면 (뷰 리졸버 선언)
 	//implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.60'
 	//implementation group: 'javax.servlet', name: 'jstl', version: '1.2'
 	
-	//타임리프 뷰 
+	//타임리프 뷰
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
+	
+	//스프링부트 유효성검증
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation'
+	
+	//마이바티스
+	implementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '2.2.0'
+	
 }
 
 tasks.named('test') {
