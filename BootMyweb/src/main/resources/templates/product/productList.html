@@ -54,7 +54,7 @@
 						<div class="fr">
 							<div class="search_btn_area">
 								<a href="#" class="normal_btn purplebtn">검색</a>
-								<a href="#" class="normal_btn purplebtn02">등록</a>
+								<a href="productReg" class="normal_btn purplebtn02">등록</a>
 							</div>
 						</div>
 					</div>
@@ -89,27 +89,28 @@
 												<th>등록자</th>
 											</tr>
 												
-											<tr>
-												<td>1</td>
+											<tr th:each=" vo, state : ${list} ">
+												<td>[[${state.index + 1}]]</td>
 												<td>
-													<a href="#" class="normal_btn">정보수정</a>
+													<a th:href="@{/product/productDetail(prod_id=${vo.prod_id})}" class="normal_btn">정보수정</a>
 													<a href="#" class="normal_btn modalOn">이미지수정</a>													
 												</td>
-												<td>20171518</td>
+												<td>[[${vo.prod_id}]]</td>
 												<td>.....</td>
 
+												<!-- prod_id를 경로?prod_id=값 형태로 넘겨야함 -->
 												<td>
-													<a title="상세보기(클릭)" href="product_detail.html">
-														비타오백
+													<a title="상세보기(클릭)" th:href="@{/product/productDetail(prod_id=${vo.prod_id})}">
+														[[${vo.prod_name}]]
 													</a>
 												</td>
-												<td>2017-03-01</td>
-												<td>16,000</td>
-												<td>0개</td>
-												<td>15%</td>
-												<td>판매중</td>
-												<td>처리완료</td>
-												<td>이규호</td>
+												<td>[[${ #temporals.format(vo.prod_regdate, 'yyyy-MM-dd') }]]</td>
+												<td>[[${vo.prod_price}]]원</td>
+												<td>[[${vo.prod_count}]]개</td>
+												<td>[[${vo.prod_discount}]]%</td>
+												<td>[[${vo.prod_purchase_yn == 'Y' ? '1회제한' : '제한없음'}]]</td>
+												<td>[[${vo.prod_enddate}]]</td>
+												<td>[[${vo.prod_writer}]]</td>
 
 											</tr>
 										</table>
@@ -216,7 +217,7 @@
 
 	//메세지 출력문
 	(function() {
-		var msg = '[[${msg}]]';
+		var msg = JSON.parse('[[${msg}]]');
 		if(msg != null) {
 			alert(msg);
 		}

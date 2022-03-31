@@ -33,5 +33,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			   )
 									
 	</insert>
+	
+	<!-- 예시사용자 admin으로 사용 -->
+	<select id="getList" resultType="ProductVO">
+		select * from PRODUCT
+		where prod_writer = 'admin'
+		order by prod_id desc
+	</select>
+	
+	<select id="getDetail" resultType="ProductVO">
+		select * from PRODUCT
+		where prod_id = #{prod_id}
+	</select>
+	
+	<update id="update">
+		update PRODUCT
+		set prod_enddate = #{prod_enddate},
+			prod_name = #{prod_name},
+			prod_price = #{prod_price},
+			prod_count = #{prod_count},
+			prod_discount = #{prod_discount},
+			prod_purchase_yn = #{prod_purchase_yn},
+			prod_content = #{prod_content},	
+			prod_comment = #{prod_comment}
+		where prod_id = #{prod_id}	
+	</update>
+	
+	<delete id="delete">
+		delete from PRODUCT
+		where prod_id = #{prod_id}
+	</delete>
 
 </mapper>
