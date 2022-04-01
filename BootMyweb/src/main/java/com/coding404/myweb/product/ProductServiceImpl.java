@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.coding404.myweb.command.ProductVO;
+import com.coding404.myweb.util.Criteria;
 
 @Service("productService")
 public class ProductServiceImpl implements ProductService {
@@ -18,11 +19,23 @@ public class ProductServiceImpl implements ProductService {
 		
 		return productMapper.regist(vo);
 	}
+	
+//	@Override
+//	public ArrayList<ProductVO> getList() {
+//		
+//		return productMapper.getList();
+//	}
 
 	@Override
-	public ArrayList<ProductVO> getList() {
+	public ArrayList<ProductVO> getList(Criteria cri) {
 		
-		return productMapper.getList();
+		return productMapper.getList(cri);
+	}
+	
+	@Override
+	public int getTotal(Criteria cri) {
+		
+		return productMapper.getTotal(cri);
 	}
 
 	@Override
@@ -41,5 +54,7 @@ public class ProductServiceImpl implements ProductService {
 		
 		return productMapper.delete(prod_id);
 	}
+
+	
 
 }

@@ -36,9 +36,79 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 예시사용자 admin으로 사용 -->
 	<select id="getList" resultType="ProductVO">
+		<!-- 
 		select * from PRODUCT
 		where prod_writer = 'admin'
 		order by prod_id desc
+		 -->
+		
+		<![CDATA[
+		SELECT *
+		FROM(SELECT A.*,
+					@ROWNUM := @ROWNUM + 1 AS RN
+			 FROM(SELECT *
+				  FROM PRODUCT
+				  WHERE PROD_WRITER = 'admin'
+		]]>
+				  <if test="startDate != '' and startDate != null">
+				  <![CDATA[
+				  AND DATE_FORMAT(PROD_ENDDATE, '%Y-%m-%d') > DATE_FORMAT(#{startDate}, '%Y-%m-%d')
+				  ]]>
+				  </if>
+				  
+				  <if test="endDate != '' and endDate != null">
+				  <![CDATA[
+		          AND DATE_FORMAT(PROD_ENDDATE, '%Y-%m-%d') <= DATE_FORMAT(#{endDate}, '%Y-%m-%d')
+				  ]]>
+				  </if>
+				  
+				  <if test="searchName != '' and searchName != null ">
+		          AND PROD_NAME LIKE CONCAT('%', #{searchName}, '%')
+				  </if>
+				  
+				  <if test="searchContent != '' and searchContent != null ">
+		          AND PROD_CONTENT LIKE CONCAT('%', #{searchContent}, '%')
+				  </if>
+		          
+		 		  ORDER BY 
+		          <if test="searchPrice == 'desc' ">
+		 		  PROD_PRICE DESC, 
+		          </if>
+		          <if test="searchPrice == 'asc' ">
+		          PROD_PRICE ASC,
+		          </if>
+		 		  PROD_ID DESC) A, (SELECT @ROWNUM := 0) D
+		
+		<![CDATA[
+		) B 
+		WHERE RN > (#{page}-1) * #{amount} AND RN <= #{page} * #{amount}
+		]]>
+		
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(*) AS TOTAL
+		FROM PRODUCT
+		WHERE prod_writer = "admin"
+		<if test="startDate != '' and startDate != null">
+		<![CDATA[
+		AND DATE_FORMAT(PROD_ENDDATE, '%Y-%m-%d') > DATE_FORMAT(#{startDate}, '%Y-%m-%d')
+		]]>
+		</if>
+				  
+		<if test="endDate != '' and endDate != null">
+		<![CDATA[
+		AND DATE_FORMAT(PROD_ENDDATE, '%Y-%m-%d') <= DATE_FORMAT(#{endDate}, '%Y-%m-%d')
+		]]>
+		</if>
+				  
+		<if test="searchName != '' and searchName != null ">
+		AND PROD_NAME LIKE CONCAT('%', #{searchName}, '%')
+		</if>
+				  
+		<if test="searchContent != '' and searchContent != null ">
+		AND PROD_CONTENT LIKE CONCAT('%', #{searchContent}, '%')
+		</if>  
 	</select>
 	
 	<select id="getDetail" resultType="ProductVO">
@@ -63,5 +133,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from PRODUCT
 		where prod_id = #{prod_id}
 	</delete>
+	
+	
 
 </mapper>
