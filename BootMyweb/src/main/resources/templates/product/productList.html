@@ -34,20 +34,20 @@
 						<div class="fl">
 							<div>
 								<span class="search_th">상품이름 검색</span>
-								<input type="text" name="searchName" class="" placeholder="상품 검색">
+								<input type="text" name="searchName" th:value="${pageVO.cri.searchName}" class="" placeholder="상품 검색">
 							</div>
 							
 							<div>
 								<span class="search_th">상품내용 검색</span>
-								<input type="text" name="searchContent" class="" placeholder="상품 검색">
+								<input type="text" name="searchContent" th:value="${pageVO.cri.searchContent}" class="" placeholder="상품 검색">
 							</div>
 							
 							<div>
 								<span class="search_th">판매가 정렬</span>
 								<select class="" name="searchPrice">
-									<option value="none">정렬방식</option>
-									<option value="asc">낮은순</option>
-									<option value="desc">높은순</option>
+									<option value="none" th:selected="${pageVO.cri.searchPrice} == 'none' ? 'selected'">정렬방식</option>
+									<option value="asc" th:selected="${pageVO.cri.searchPrice} == 'asc' ? 'selected'">낮은순</option>
+									<option value="desc" th:selected="${pageVO.cri.searchPrice} == 'desc' ? 'selected'">높은순</option>
 								</select>
 							</div>
 
@@ -55,8 +55,8 @@
 							<div class="pdt15"></div>
 							<div>
 								<span class="search_th">판매마감일</span>
-								<input type="text" class="datepicker" name="startDate" readonly placeholder="날짜선택" /> -
-								<input type="text" class="datepicker" name="endDate" readonly placeholder="날짜선택" />
+								<input type="text" class="datepicker" name="startDate" th:value="${pageVO.cri.startDate}" readonly placeholder="날짜선택" /> -
+								<input type="text" class="datepicker" name="endDate" th:value="${pageVO.cri.endDate}" readonly placeholder="날짜선택" />
 							</div>
 							<!-- 
 							<div>
@@ -178,6 +178,8 @@
 											</ul>
 										</div>
 										 -->
+										 
+										 <!-- 
 										<div class="page">
 											<ul>
 											
@@ -255,7 +257,13 @@
 												</th:block>
 												
 											</ul>
-										</div> 
+										</div>
+										 -->
+										 
+										 <div class="page">
+										 	<th:block th:replace="~{/include/page :: page( '/product/productList', ${pageVO} )}"></th:block>
+										 </div>
+										  
 									</li>
 
 								</ul>
@@ -352,7 +360,14 @@
 		//a는 select태그, a.value는 태그의 값
 		//console.log(a.value);
 		
-		location.href='/product/productList?page=1&amount=' + a.value;
+		//1st
+		//location.href='/product/productList?page=1&amount=' + a.value;
+		
+		//2nd(검색폼을 submit)
+		document.productList.page.value = 1;
+		document.productList.amount.value = a.value;
+		document.productList.submit();
+		
 		
 	}
 	
