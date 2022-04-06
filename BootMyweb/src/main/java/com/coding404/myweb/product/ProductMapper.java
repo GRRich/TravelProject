@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.coding404.myweb.command.CategoryVO;
 import com.coding404.myweb.command.ProductVO;
 import com.coding404.myweb.util.Criteria;
 
@@ -22,5 +23,7 @@ public interface ProductMapper {
 	public int update(ProductVO vo); //수정
 	
 	public int delete(int prod_id); //삭제
+	
+	public ArrayList<CategoryVO> getCategory(); //첫번째 카테고리
 	
 }

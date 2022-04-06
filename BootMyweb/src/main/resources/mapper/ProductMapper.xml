@@ -134,6 +134,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where prod_id = #{prod_id}
 	</delete>
 	
+	<!-- 첫번째 카테고리 ajax방식 -->
+	<select id="getCategory" resultType="CategoryVO">
+		SELECT * FROM PRODUCT_CATEGORY WHERE CATEGORY_LV = 1
+	</select>
+	
 	
 
 </mapper>
