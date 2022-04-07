@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class CategoryVO {
-	
 //	CREATE TABLE PRODUCT_CATEGORY(
 //			CATEGORY_ID INT PRIMARY KEY AUTO_INCREMENT,
 //		    GROUP_ID VARCHAR(10),
@@ -30,5 +29,8 @@ public class CategoryVO {
 	private String category_detail_nm;
 	private Integer category_parent_lv;
 	private Integer category_detail_parent_lv;
-
+	
+	
+	
+	
 }

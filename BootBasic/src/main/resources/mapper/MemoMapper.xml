@@ -9,15 +9,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- select sysdate from dual -->
 		select now()
 	</select>
-	
+
 	<insert id="memoInsert">
-		insert into MEMO(memo, phone, pw, secret)
+		insert into MEMO(memo, phone, pw, secret )
 		values(#{memo}, #{phone}, #{pw}, #{secret})
 	</insert>
 	
+	<!-- mybatis엘리어스로 클래스 이름으로 처리가 가능 -->
 	<select id="getList" resultType="MemoVO">
 		select * from MEMO order by mno desc
 	</select>
 
+
 </mapper>
+
+
+
+
+
+
+
+
 

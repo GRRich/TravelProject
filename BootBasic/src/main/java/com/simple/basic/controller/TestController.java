@@ -13,10 +13,16 @@ public class TestController {
 		return "home";
 	}
 	
+	
+	
 	@ResponseBody
 	@GetMapping("hello2")
 	public String hello2() {
-		return "안뇽2";
+		
+		return "안녕하세요2";
 	}
+	
+	
+	
 	
 }

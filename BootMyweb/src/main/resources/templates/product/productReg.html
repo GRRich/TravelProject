@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<th:block th:replace="~{/include/basicLayout :: setContent(~{:: .wrap})}">
+
+<th:block th:replace="~{/include/basicLayout :: setContent( ~{:: .wrap} ) }">
 
     <div class="wrap">
         <div class="warp_inner">
@@ -32,7 +33,7 @@
                                                     <td colspan="5" >
                                                         
                                                         <input type="hidden" name="prod_category" value="">
-
+														
                                                         <div class="loading" style="display: none;">
                                                             <div class="loader" ></div>
                                                             <div class="loading-overlay" ></div>
@@ -264,48 +265,47 @@
         </div>
 
         
-    </div>
+    </div>  
 
 </th:block>
 
+
 <script th:inline="javascript">
 	
-	
 	$(document).ready(function() {
-		
 		//get방식 ajax
+			
 		$.getJSON("../getCategory",
-				  function(data) {
+				function(data) {
 					console.log(data);
-					
-					/* 
+					/*
 					<ul class="categoryList" style="position: relative;" onclick="getCategory_List(event);" >
-	                    <li><a href="#" data-set='{"category_lv": "1", "group_id": "A" }'>패션의류</a></li>
-	                    <li><a href="#" data-set='{"category_lv": "1", "group_id": "B" }'>뷰티</a></li>
-	                    <li><a href="#" data-set='{"category_lv": "1", "group_id": "C" }'>식품</a></li>
+                    <li><a href="#" data-set='{"category_lv": "1", "group_id": "A" }'>패션의류</a></li>
+                    <li><a href="#" data-set='{"category_lv": "1", "group_id": "B" }'>뷰티</a></li>
+                    <li><a href="#" data-set='{"category_lv": "1", "group_id": "C" }'>식품</a></li>
                 	</ul>
-					*/
-					
-					var category01 = "";
-					category01 += '<ul class="categoryList" style="position: relative;" onclick="getCategory_List(event);" >';
-					
-					//제이쿼리 포문(익명함수(데이터값,인덱스값))
-					data.forEach(function(result, index) {
-						
-						category01 += '<li><a href="#" data-set=' + JSON.stringify(result) + '>' + result.category_detail_nm + '</a></li>';
-						
-					})
-					
-					category01 += '</ul>';
-					
-					$(".categoryListWrap").append(category01); //선택자 아래에 마지막 자식으로 추가
-					
-				  });
+                	*/
+                	
+                	var category01 = "";
+                	category01 += '<ul class="categoryList" style="position: relative;" onclick="getCategory_List(event);" >';
+                	//제이쿼리 for문(익명함수(데이터값, 인덱스값))
+                	data.forEach(function(result, index) {
+                		category01 += '<li><a href="#" data-set=' + JSON.stringify(result)  + '>'+ result.category_detail_nm +'</a></li>';
+                	})
+                	category01 += '</ul>';
+                	
+                	$(".categoryListWrap").append(category01); //선택자 아래에 마지막 자식으로 추가
+                	
+                	
+				});
 		
-	});
+	})
 	
 	
 </script>
+
+
+
 
 
 </html>

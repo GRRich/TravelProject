@@ -11,7 +11,7 @@ import com.simple.basic.command.MemoVO;
 @Mapper 
 public interface MemoMapper {
 
-	public String getTime();
-	public void memoInsert(MemoVO vo);
-	public ArrayList<MemoVO> getList();
+	public String getTime(); 
+	public void memoInsert(MemoVO vo); //등록
+	public ArrayList<MemoVO> getList(); //목록
 }

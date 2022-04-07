@@ -10,9 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class RestVO {
-	
+
 	private Integer num;
 	private String name;
 	private String id;
-
 }

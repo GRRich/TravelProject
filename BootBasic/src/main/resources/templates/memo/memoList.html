@@ -16,16 +16,17 @@
 				<td>공개여부</td>
 			</tr>
 			
-			<!-- 반복문으로 처리해주세요 -->						
+			<!-- 반복문으로 처리해주세요 -->		
+										
 			<tr th:each="vo : ${list}" >
 				<td>[[${vo.mno}]]</td>
 				
 				<!-- if~else로 처리해주세요 -->
-				<td th:if="${vo.secret} == 'y'" >비밀글입니다</td>
-				<td th:unless="${vo.secret} == 'y'" >[[${vo.memo}]]</td>
+				<td th:if="${vo.secret} == 'y'">비밀글입니다</td>
+				<td th:unless="${vo.secret} == 'y'">[[${vo.memo}]]</td>
 				
-				<td></td>
-				<td></td>
+				<td>[[${vo.phone}]]</td>
+				<td>[[${vo.secret}]]</td>
 			</tr>
 			
 	</table>

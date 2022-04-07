@@ -7,6 +7,6 @@ import com.simple.basic.command.MemoVO;
 public interface MemoService {
 
 	public String getTime(); //예제코드
-	public void memoInsert(MemoVO vo);
-	public ArrayList<MemoVO> getList();
+	public void memoInsert(MemoVO vo); //등록
+	public ArrayList<MemoVO> getList(); //목록
 }

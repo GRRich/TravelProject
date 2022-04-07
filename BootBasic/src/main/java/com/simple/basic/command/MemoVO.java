@@ -12,17 +12,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class MemoVO {
-	
+
 	//wrapper타입으로
 	private Integer mno;
 	
 	@Pattern(regexp = "[a-zA-Z가-힣0-9]{5,}", message = "내용은 5자 이상입니다")
 	private String memo;
 	
-	@Pattern(regexp = "[0-9]{3}-[0-9]{4}-[0-9]{4}", message = "전화번호 형식이어야 합니다")
+	@Pattern(regexp = "[0-9]{3}-[0-9]{3,4}-[0-9]{4}", message = "전화번호 형식이어야 합니다")
 	private String phone;
 	
-	@Pattern(regexp = "[0-9]{4}", message = "비밀번호는 숫자 4자리 입니다")
+	@Pattern(regexp = "[0-9]{4}", message = "비밀번호는 숫자 4자리 입니다") 
 	private String pw;
 	
 	private String secret;

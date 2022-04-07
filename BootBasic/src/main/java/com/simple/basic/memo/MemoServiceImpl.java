@@ -27,8 +27,7 @@ public class MemoServiceImpl implements MemoService {
 
 	@Override
 	public ArrayList<MemoVO> getList() {
-		// TODO Auto-generated method stub
-		return null;
+		return memoMapper.getList();
 	}
 
 }

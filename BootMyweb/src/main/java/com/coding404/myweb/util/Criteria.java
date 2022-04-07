@@ -16,8 +16,10 @@ public class Criteria {
 	private String startDate;
 	private String endDate;
 	
+	
+	
 	public Criteria() {
-		this(1,10);
+		this(1, 10);
 	}
 
 	public Criteria(int page, int amount) {
@@ -27,5 +29,5 @@ public class Criteria {
 	}
 	
 	
-
+	
 }

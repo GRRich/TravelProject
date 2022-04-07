@@ -35,10 +35,11 @@ public class MemoController {
 		model.addAttribute("time", time);
 		
 	}
-	
+	//화면처리
 	@GetMapping("/memoList")
 	public String memoList(Model model) {
 		
+		//select
 		ArrayList<MemoVO> list = memoService.getList();
 		model.addAttribute("list", list);
 		
@@ -54,26 +55,29 @@ public class MemoController {
 	
 	//요청폼(등록)
 	@PostMapping("/memoForm")
-	public String memoForm(@Valid MemoVO vo, Errors errors, Model model ) {
+	public String memoForm(@Valid MemoVO vo, Errors errors, Model model) {
 		
-		//등록
+		//유효성검사
 		if(errors.hasErrors()) { //유효성 검사 실패시 true
-			
-			List<FieldError> list = errors.getFieldErrors();
-			
-			for( FieldError err : list ) {
-				System.out.println(err.getField());
-				model.addAttribute("valid_" + err.getField() , err.getDefaultMessage());
+			List<FieldError> list = errors.getFieldErrors(); //유효성검사 실패목록
+			for(FieldError err : list) {
+				model.addAttribute("valid_" + err.getField() , err.getDefaultMessage() );
 			}
 			
 			model.addAttribute("vo", vo); //화면에 처리할 데이터
-			
 			return "memo/memoWrite";
-			
 		}
+		
+		//등록
+		memoService.memoInsert(vo);
 		
 		
 		return "redirect:/memo/memoList"; //리스트화면으로
 	}
+	
+	
+	
+	
+	
 	
 }
