@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+    <link rel="stylesheet" th:href="@{/css/login_join.css}">
+</head>
+<body style="background-color: #FFDEAD;">
+
+    <div class="container-fluid text-center">    
+        <div class="row content text-center">
+          
+            <div class="col-sm-6 text-center" style="margin: 0 auto; float: none;"> 
+           
+                <div class="joinheader">
+                    <div class="top">
+                        <strong>간편 회원가입</strong>
+                        <p><a th:href="@{/user/userLogin}">로그인화면으로</a></p>
+                    </div>
+                    
+                    <hr>
+                
+                    <div class="joinform">
+                        <form action="#" method="post">
+                            <ul>
+                                <li><strong>아이디</strong><br>
+                                    <input type="text" placeholder="아이디" name="user_id"></li>
+                                <li><strong>비밀번호</strong><br>
+                                    <input type="password" placeholder="6~12자" name="user_pw"></li>
+                                <li><strong>비밀번호확인</strong><br>
+                                    <input type="password" placeholder="비밀번호 확인" ></li>
+                                <li><strong>이름</strong><br>
+                                    <input type="text" placeholder="이름" name="user_name"></li>
+                                <li><strong>나이</strong><br>
+                                    <input type="text" placeholder="나이" name="user_age"></li>
+                                <li>
+                                    <strong>성별</strong><br>
+                                    <select name="user_gender" id="gender">
+                                        <option value="male">남자</option>
+                                        <option value="female">여자</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <strong>취미 : </strong>
+                                    <div id="hobby" >
+                                        <input type="checkbox" name="user_hobby">여행
+                                        <input type="checkbox" name="user_hobby">요리
+                                        <input type="checkbox" name="user_hobby">게임
+                                        <input type="checkbox" name="user_hobby">독서
+                                        <input type="checkbox" name="user_hobby">기타
+                                    </div>
+                                    
+                                    </li>
+                                <li><strong>연락처</strong><br>
+                                    <input type="text" placeholder="000-0000-0000" name="user_phone"></li>
+                            </ul>
+
+                            <button type="button" id="joinBtn">가입하기</button><!--submit-->
+                        </form>
+                    </div>
+                </div>
+                  
+            </div>
+      
+        </div>
+    </div>
+
+    
+</body>
+</html>

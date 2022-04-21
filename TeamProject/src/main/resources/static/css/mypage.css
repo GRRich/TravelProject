@@ -1,0 +1,236 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    outline: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /*메인 디자인*/
+  /* Remove the navbar's default margin-bottom and rounded borders */ 
+  .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    /* .row.content {height: 450px} */
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #C5DFC5;
+      height: 100%;
+    }
+  
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 100%) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  
+    .carousel-inner > .item > img {
+      top: 0;
+      left: 0;
+      min-width: 1980px;
+      min-height: 400px;
+      max-height: 400px;
+    }
+    
+    .col-sm-12 {
+      padding: 0;
+      font-family: 'Nanum Brush Script', cursive;
+      font-size: 30px;
+    }
+  
+  
+    .carousel-control.left,
+    .carousel-control.right {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+  
+    .carousel .carousel-control { visibility: hidden; }
+  .carousel:hover .carousel-control { visibility: visible; }
+  
+  .carousel-caption{
+    bottom: -25px;
+  }
+  
+  /*회원정보,수정 페이지*/
+  
+  .userpage {
+    margin-top: 20px;
+    overflow: hidden;
+    height: auto;
+  }
+  
+  .userpage > .profile {
+    float: left;
+    margin-right: 20px;
+    margin-top: 103px;
+  }
+  
+  .userpage > .profilem {
+    float: left;
+    margin-right: 20px;
+    margin-top: 62px;
+  }
+  
+  .userpage > .profilem > .file {
+    border: 1px solid #777;
+    padding: 40px 10px;
+    margin-bottom: 5px;
+  }
+  
+  .userpage > .profile > .file {
+    border: 1px solid #777;
+    padding: 40px 10px;
+    margin-bottom: 5px;
+  }
+  
+  /* .userpage .myDM {
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #333;
+  } */
+  
+  
+  
+  .userTable {
+  width: 100%; /*사진넣으면 740px*/
+  float: left;
+  
+  }
+  
+  .reviewTable {
+  width: 100%;
+  margin: 0 auto;
+  
+  
+  }
+  
+  .reviewTable td {
+  border: 1px solid #777;
+  padding: 10px;
+  
+  
+  }
+  
+  .reviewList .tag{
+  background-color: rgb(242, 201, 124, 0.6);
+  color: #555;
+  border: 1px solid #777;
+  padding: 10px;
+  
+  }
+  
+  .favoritesTable {
+    width: 100%;
+    margin: 0 auto;
+    display: none;
+    }
+    
+    .favoritesTable td {
+    border: 1px solid #777;
+    padding: 7px;
+    
+    
+    }
+    
+    .favoritesTable .tag{
+    background-color: rgb(242, 201, 124, 0.6);
+    color: #555;
+    border: 1px solid #777;
+    padding: 10px;
+    
+    }
+  
+  tbody {
+  border-top: 2px solid #777;
+  }
+  
+  
+  tbody > tr > th {
+  border-bottom: 1px solid #777;
+  background-color: rgb(242, 201, 124, 0.6);
+  padding: 10px;
+  text-align: center;
+  color: #555;
+  
+  }
+  
+  tbody > tr > .info {
+  border-bottom: 1px solid #777;
+  border-left: 1px solid #777;
+  padding: 10px;
+  text-align: left;
+  
+  }
+  
+  tbody > tr > .info > input {
+  
+  border-radius: 4px;
+  border: 1px solid rgb(242, 201, 124);
+  
+  }
+  
+  tbody > tr > .info > input:focus {
+    border: 2px solid rgb(242, 201, 124);
+  }
+  
+  .infoBottom {
+  margin: 10px 0px;
+  
+  }
+  
+  .infoBottom1 .save, .myDM {
+    background-color: #fff;
+    border: 1px solid rgb(242, 201, 124);
+    border-radius: 3px;
+    color: #333;
+    width: 100px;
+    height: 43px;
+    margin: auto;
+  }
+  
+  .infotitle{
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  
+  .infotitle > .h2 {
+    float: left;
+  }
+  
+  .infotitle > .infoBottom1 {
+    float: right;
+    margin-top: 15px;
+    
+  }
+  
+  
+  .infoBottom .save, .infoBottom .out {
+  background-color: #fff;
+  border: 1px solid rgb(242, 201, 124);
+  border-radius: 3px;
+  color: #777;
+  width: 100px;
+  height: 40px;
+  transition-duration: 0.4s;
+  }
+  
+  .infoBottom .save:hover, .infoBottom .out:hover {
+  background-color: orange;
+  color: #333;
+  }

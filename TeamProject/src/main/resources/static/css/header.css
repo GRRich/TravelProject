@@ -1,0 +1,123 @@
+* {padding: 0; margin: 0; list-style: none;}
+#header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 113px;
+    background: rgba(0,0,0,0.5);
+    z-index: 100;
+
+}
+#header .header_area {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#header .header_area h1 {
+    float: left;
+    padding: 45px 0 0;
+}
+#header .header_area h1 a {
+    display: block;
+    width: 270px;
+    height: 71px;
+    text-indent: -9999px;
+    overflow: hidden;
+    background: url(../img/logo.png) no-repeat;
+}
+#header .header_cont {
+    float: right;
+}
+#header .header_cont .util {
+    text-align: right;
+    padding-top: 10px;
+    margin-right: 80px;
+}
+#header .header_cont .util > li {
+    display: inline-block;
+}
+.header_cont .util li:first-child:after {
+    content: "|";
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 10px;
+    color: #eee;
+    position: relative;
+    top: -2px;
+}
+#header .header_cont .util > li > a {
+    color: #eee;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+#header .header_cont .gnb {
+    float: right;
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+#header .header_cont .gnb > li{
+    float: left;
+}
+#header .header_cont .gnb > li > a {
+    display: block;
+    padding: 14px 40px;
+    font-size: 29px;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Nanum Brush Script', cursive;
+}
+
+
+.gnb_depth {
+    width: 100%;
+    z-index: 100;
+    display: none;
+}
+.gnb_depth_sub {
+    overflow: hidden;
+    width: 600px;
+    margin: 0 auto;
+    position: relative;
+    top: -10px;
+    left: -12px;
+    font-size: 18px;
+}
+.submenu_list {
+    box-sizing: border-box;
+    float: left;
+    width: 150px;
+    text-align: center;
+    transition: all 0.2s linear;
+}
+
+.submenu_list li a {
+    display: inline-block;
+    padding: 20px;
+    text-decoration: none;
+    color: #eee;
+    font-size: 22px;
+    font-family: 'Nanum Brush Script', cursive;
+}
+.submenu_list li a:hover{
+    transform: scale(1.1);
+}
+
+/* main rolling */
+.main_rolling_mobile {display: none;}
+.visualRoll {position:relative; width:100%;}
+.viewImgList {position:relative; width:100%;}	
+.viewImgList li {text-align:center; height:550px; line-height:550px;}
+.viewImgList li.imglist0 {position:relative; z-index:50; background:url('../img/간월재.jpg') no-repeat center;}
+.viewImgList li.imglist1 {position:absolute; width:100%; left:0; top:0; z-index:10; background:url('../img/단양.jpg') no-repeat center;}
+.viewImgList li.imglist2 {position:absolute; width:100%; left:0; top:0; z-index:10; background:url('../img/오륙도.jpg') no-repeat center;}
+.viewImgList li {background-size:cover !important;}
+.viewImgList li .roll_content {position:relative;}
+.viewImgList li .roll_content .roll_txtline {position:absolute; left:0; bottom:60px; width:100%; line-height:1; text-align:center; font-size:22px; color:#fff; letter-spacing:2px;}
+.rollbtnArea {position:absolute; width:100%; left:0; bottom:25px; z-index:200;}
+.rollbtnArea .rollingbtn {width:320px; margin:0 auto; text-align:center;}
+.rollbtnArea .rollingbtn li {display:inline-block; margin-right:5px;}
+.rollbtnArea .rollingbtn li.butt0 {margin-left:10px;}
+.rollbtnArea .rollingbtn li.rollplay {display:none;}
+.rollbtnArea .rollingbtn li a {vertical-align:top;}

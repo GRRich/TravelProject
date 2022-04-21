@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  	<th:block th:replace="~{/include/header :: commoncss }"></th:block>
+  	
+    <link rel="stylesheet" th:href="@{/css/login_join.css}">
+    <link rel="stylesheet" th:href="@{css/footer.css}">
+
+  
+</head>
+<body>
+   
+    <div class="container-fluid text-center">    
+        <div class="row content text-center">
+          
+            <div class="col-sm-6 text-center" style="margin: 125px auto 50px auto; float: none;"> 
+           
+               <div class="login">
+                  <strong>로그인</strong>
+                   <form action="#" method="post">
+                     <ul>
+                       <li>
+                         <input type="text" placeholder="아이디" name="user_id">
+                        </li>
+                        <li>
+                          <input type="password" placeholder="비밀번호" name="user_pw">
+                        </li>
+                      </ul>
+                      <input type="button" id="loginBtn" value="로그인">
+                    </form>
+                    <!-- 
+                   <div class="join">
+                     <div class="adminlogin">
+                       <button type="button" onclick="loginChange()" id="loginChange">관리자로그인</button>
+                     </div>
+                      <small><a th:href="@{/user/userFind}">아이디/비밀번호찾기</a></small>
+                      <small><a th:href="@{/user/userJoin}">회원가입</a></small>
+                       -->
+                   </div>
+                   <hr>
+                   <div class="simplelogin">
+                       <span>간편 로그인</span>
+                   </div>
+                   <div class="icons">    
+                       <div class="icon"><a href="#"><img th:src="@{/img/icon_naver.png}" alt="네이버"></a></div>
+                       <div class="icon"><a href="#"><img th:src="@{/img/icon_facebook.png}" alt="페이스북"></a></div>
+                       <div class="icon"><a href="#"><img th:src="@{/img/icon_kakao.png}" alt="카카오"></a></div>
+                    </div>
+               </div>
+                  
+            </div>
+      
+        </div>
+    </div>
+
+   <th:block th:replace="~{/include/footer :: f_include }"></th:block>
+    
+    <script>
+    /*
+      function loginChange() {
+        document.getElementById("loginChange").classList.toggle("admin");
+
+        if(document.getElementById("loginChange").classList.contains("admin")){
+            document.getElementsByTagName("strong")[0].innerHTML='관리자 로그인';
+            document.getElementById("loginChange").innerHTML='회원 로그인';
+            document.getElementsByTagName("small")[0].style.display='none';
+            document.getElementsByTagName("small")[1].style.display='none';
+
+        } else {
+            document.getElementsByTagName("strong")[0].innerHTML='로그인';
+            document.getElementById("loginChange").innerHTML='관리자 로그인';
+            document.getElementsByTagName("small")[0].style.display='inline';
+            document.getElementsByTagName("small")[1].style.display='inline';
+        }
+      }
+    */
+    </script>
+</body>
+</html>

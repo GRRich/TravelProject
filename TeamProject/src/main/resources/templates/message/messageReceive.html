@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" th:href="@{/css/message.css}">
+
+  
+</head>
+<body>
+
+    <div class="box">
+        <h3 class="title">받은메시지</h3>
+        <h4 class="sender">FROM.라이언</h4>
+
+        <div containerbox>
+            <div class="innerbox">
+                <span>넹 안녕하세욥</span>
+            </div>
+            <div class="innerbottom">
+                <button type="button" class="messageBtn" onclick="location.href='messageSend'">답장</button>
+                <!-- 나에게 쓴 사람에게 메세지 보내기-->
+                <button type="button" class="messageBtn">삭제</button>
+                <button type="button" class="messageBtn" onclick="location.href='messageList'">목록</button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

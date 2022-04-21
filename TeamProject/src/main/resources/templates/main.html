@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  
+  <th:block th:replace="~{/include/header :: commoncss }"></th:block>
+  
+  <script th:src="@{https://code.jquery.com/jquery-1.12.4.min.js}" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script type="text/javascript" th:src="@{https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=kb9jfea4wi}"></script>
+  <script type="text/javascript" th:src="@{/data/accidentdeath.js}"></script>
+  <script type="text/javascript" th:src="@{/js/MarkerClustering.js}"></script>
+  <script th:src="@{/data/jquery-3.6.0.min.JS}"></script>
+  <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+  <script th:src="@{/js/jquery-ui.min.js}"></script>
+  <script th:src="@{/js/showMoreItems.min.js}"></script>
+  <script th:src="@{/js/map.js}"></script>
+  
+  <link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+  <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+  <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+  <link th:href="@{https://fonts.googleapis.com/css2?family=Lato&display=swap}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/showMoreItems-theme.min.css}" />
+
+</head>
+<body>
+
+<th:block th:replace="~{/include/header :: h_include }"></th:block>
+
+<div class="weekly-outer">
+  <div class="weekly-content">
+
+    <div class="weekly-content1">
+      <div class="weekly-text">
+        <h2>추천 여행지</h2>
+      </div>
+    <div class="weekly-commend">
+
+      <div class="weekly-commend1">
+        <a href="#taste-travel"><img th:src="@{/img/맛집아이콘.PNG}" id="tasteImg" style="cursor: pointer;"></a>
+        <div>
+          맛집 여행
+        </div>
+      </div>
+      <div class="weekly-commend2">
+        <a href="#view-travel"><img th:src="@{/img/명소아이콘.PNG}" id="locaImg" style="cursor: pointer;"></a>
+        <div>
+          명소 여행
+        </div>
+      </div>
+      <div class="weekly-commend3">
+        <a href="#play-travel"><img th:src="@{/img/레저아이콘.PNG}" id="playImg" style="cursor: pointer;"></a>
+        <div>
+          재밌는 여행
+        </div>
+      </div>
+      
+    </div>
+  </div>
+      
+  </div>
+</div>
+
+<div class="inr">
+  <ul>
+    <li>
+      <a href="#">
+        <span class="img"><img th:src="@{/img/img1.jpg}" class="inr-img"></span>
+      </a>
+      <p class="item_title">강원</p>
+      <p class="item_text">동해바다와 기차 여행
+        <br>
+        강원도 입장권&데이투어
+      </p>
+    </li>
+    <li>
+      <a href="#">
+        <span class="img"><img th:src="@{/img/img2.jpg}" class="inr-img"></span>
+      </a>
+      <p class="item_title">대구</p>
+      <p class="item_text">도란도란 가족과 함께
+        <br>
+        대구 호텔&입장권
+      </p>
+    </li>
+    <li>
+      <a href="#">
+        <span class="img"><img th:src="@{/img/img3.jpg}" class="inr-img"></span>
+      </a>
+      <p class="item_title">제주</p>
+      <p class="item_text">제주 주변섬 여행
+        <br>
+        렌터카 10만원 이용권 증정!
+      </p>
+    </li>
+    <li>
+      <a href="#">
+        <span class="img"><img th:src="@{/img/img4.jpg}" class="inr-img"></span>
+      </a>
+      <p class="item_title">서울</p>
+      <p class="item_text">교복입고 롯데월드 가자!
+        <br>
+        자유이용권&이화교복 대여
+      </p>
+    </li>
+    <li>
+      <a href="#">
+        <span class="img"><img th:src="@{/img/img5.jpg}" class="inr-img"></span>
+      </a>
+      <p class="item_title">부산</p>
+      <p class="item_text">자유롭게 부산여행
+        <br>
+        이것저것 준비하기!
+      </p>
+    </li>
+  </ul>
+</div>
+
+
+
+<div id="map" style="width:80%;height:500px;padding:0;margin-left: 185px;"></div>
+
+
+<div class="taste-middle-outer" style="display: none;">
+  <div class="taste-middle">
+      <div class="taste-middle-text">
+          <span id="taste-travel">먹거리 여행</span>
+      </div>
+  </div>
+  <div class="taste-middle2">
+      <div class="taste-sidecheck">
+          <div>
+              <span style="font-size: 20px; font-weight: bold;">음식 종류</span>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox1">
+              <label for="checkbox1">
+                  <div>
+                      <span>한식</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox2">
+              <label for="checkbox2">
+                  <div>
+                      <span>중식</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox3">
+              <label for="checkbox3">
+                  <div>
+                      <span>일식</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox4">
+              <label for="checkbox4">
+                  <div>
+                      <span>양식</span>
+                  </div>
+              </label>
+          </div>
+
+          <hr>
+
+          <div>
+            <span style="font-size: 20px; font-weight: bold;">지역</span>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox5">
+              <label for="checkbox5">
+                  <div>
+                      <span>서울</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox6">
+              <label for="checkbox6">
+                  <div>
+                      <span>경기</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox7">
+              <label for="checkbox7">
+                  <div>
+                      <span>강원</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox8">
+              <label for="checkbox8">
+                  <div>
+                      <span>부산</span>
+                  </div>
+              </label>
+
+              <hr>
+
+              <div class="revboard">
+                <a href="#"><img th:src="@{/img/리뷰게시판이미지.png}" class="revImg"></a>
+              </div>
+
+          </div>
+
+          
+          
+      </div>
+
+      <div class="taste-midcon">
+
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            고양고양고양고양고양고양고양고양고양고양고양고양고양고양
+          </div>
+        </div>
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            고양고양고양고양고양고양고양고양고양고양고양고양고양고양
+          </div>
+        </div>
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            고양고양고양고양고양고양고양고양고양고양고양고양고양고양
+          </div>
+        </div>
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            고양고양고양고양고양고양고양고양고양고양고양고양고양고양
+          </div>
+        </div>
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            고양고양고양고양고양고양고양고양고양고양고양고양고양고양
+          </div>
+        </div>
+
+      </div>
+  </div>
+</div>
+
+<div class="taste-middle-outer2" style="display: none;">
+  <div class="taste-middle">
+      <div class="taste-middle-text">
+          <span id="view-travel">볼거리 여행</span>
+      </div>
+  </div>
+  <div class="taste-middle2">
+      <div class="taste-sidecheck">
+
+          <div>
+            <span style="font-size: 20px; font-weight: bold;">지역</span>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox9">
+              <label for="checkbox9">
+                  <div>
+                      <span>서울</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox10">
+              <label for="checkbox10">
+                  <div>
+                      <span>경기</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox11">
+              <label for="checkbox11">
+                  <div>
+                      <span>강원</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox12">
+              <label for="checkbox12">
+                  <div>
+                      <span>부산</span>
+                  </div>
+              </label>
+
+              <hr>
+
+              <div class="revboard">
+                <a href="#"><img th:src="@{/img/리뷰게시판이미지.png}" class="revImg"></a>
+              </div>
+              
+          </div>
+
+          
+          
+      </div>
+
+      <div class="taste-midcon">
+
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            고양고양고양고양고양고양고양고양고양고양고양고양고양고양
+          </div>
+        </div>
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            고양고양고양고양고양고양고양고양고양고양고양고양고양고양
+          </div>
+        </div>
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            고양고양고양고양고양고양고양고양고양고양고양고양고양고양
+          </div>
+        </div>
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            고양고양고양고양고양고양고양고양고양고양고양고양고양고양
+          </div>
+        </div>
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            고양고양고양고양고양고양고양고양고양고양고양고양고양고양
+          </div>
+        </div>
+        
+      </div>
+  </div>
+</div>
+
+<div class="taste-middle-outer3" style="display: none;">
+  <div class="taste-middle">
+      <div class="taste-middle-text">
+          <span id="play-travel">놀거리 여행</span>
+      </div>
+  </div>
+  <div class="taste-middle2">
+      <div class="taste-sidecheck">
+          <div>
+              <span style="font-size: 20px; font-weight: bold;">레저스포츠</span>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox13">
+              <label for="checkbox13">
+                  <div>
+                      <span>스카이다이빙</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox14">
+              <label for="checkbox14">
+                  <div>
+                      <span>래프팅</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox15">
+              <label for="checkbox15">
+                  <div>
+                      <span>수상스키</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox16">
+              <label for="checkbox16">
+                  <div>
+                      <span>서핑</span>
+                  </div>
+              </label>
+          </div>
+
+          <hr>
+
+          <div>
+            <span style="font-size: 20px; font-weight: bold;">지역</span>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox17">
+              <label for="checkbox17">
+                  <div>
+                      <span>서울</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox18">
+              <label for="checkbox18">
+                  <div>
+                      <span>경기</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox19">
+              <label for="checkbox19">
+                  <div>
+                      <span>강원</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="checkbox" name="" id="checkbox20">
+              <label for="checkbox20">
+                  <div>
+                      <span>부산</span>
+                  </div>
+              </label>
+
+              <hr>
+
+              <div class="revboard">
+                <a href="#"><img th:src="@{/img/리뷰게시판이미지.png}" class="revImg"></a>
+              </div>
+
+          </div>
+
+          
+          
+      </div>
+
+      <div class="taste-midcon">
+
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            고양고양고양고양고양고양고양고양고양고양고양고양고양고양
+          </div>
+        </div>
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            고양고양고양고양고양고양고양고양고양고양고양고양고양고양
+          </div>
+        </div>
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            고양고양고양고양고양고양고양고양고양고양고양고양고양고양
+          </div>
+        </div>
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            고양고양고양고양고양고양고양고양고양고양고양고양고양고양
+          </div>
+        </div>
+
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            고양고양고양고양고양고양고양고양고양고양고양고양고양고양
+          </div>
+        </div>
+
+      </div>
+  </div>
+</div>
+<th:block th:replace="~{/include/footer :: f_include }"></th:block>
+<script>
+  // 아이콘 클릭시 해당 클래스가 보여지면서 위치로가기
+  var tasteImg = document.getElementById("tasteImg");
+  var outer = document.querySelector(".taste-middle-outer")
+  var locaImg = document.getElementById("locaImg");
+  var outer2 = document.querySelector(".taste-middle-outer2")
+  var playImg = document.getElementById("playImg");
+  var outer3 = document.querySelector(".taste-middle-outer3")
+
+  tasteImg.onclick = function() {
+    outer.style.display = "block";
+
+    if(outer2.style.display = "block") {
+      outer2.style.display = "none"
+    }
+    if(outer3.style.display = "block") {
+      outer3.style.display = "none"
+    }
+
+  }
+
+
+  locaImg.onclick = function() {
+    outer2.style.display = "block";
+
+    if(outer.style.display = "block") {
+      outer.style.display = "none"
+    }
+    if(outer3.style.display = "block") {
+      outer3.style.display = "none"
+    }
+
+  }
+
+
+  playImg.onclick = function() {
+    outer3.style.display = "block";
+
+    if(outer2.style.display = "block") {
+      outer2.style.display = "none"
+    }
+    if(outer.style.display = "block") {
+      outer.style.display = "none"
+    }
+
+  }
+</script>
+
+<script>
+
+  //더보기기능
+
+  $('.taste-midcon').showMoreItems({
+   startNum: 4,
+   afterNum: 4,
+   moreText: 'Load More',
+   noMoreText: 'No More',
+   responsive: [
+    {
+      breakpoint: 1280,
+      settings: {
+        startNum: 2,
+        afterNum: 2
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        startNum: 1,
+        afterNum: 1
+      }
+    }
+  ]
+});
+
+
+</script>
+
+<script>
+$(document).ready(function(){
+  var map = new naver.maps.Map("map", {
+      zoom: 6,
+      center: new naver.maps.LatLng(36.2253017, 127.6460516),
+      zoomControl: true,
+      zoomControlOptions: {
+          position: naver.maps.Position.TOP_LEFT,
+          style: naver.maps.ZoomControlStyle.SMALL
+      }
+  });
+
+  var markers = []
+  var data = accidentDeath.searchResult.accidentDeath;
+  var infoWindows = [];
+
+
+
+
+  for (var i = 0, ii = data.length; i < ii; i++) {
+       var spot = data[i],
+          latlng = new naver.maps.LatLng(spot.grd_la, spot.grd_lo),
+          marker = new naver.maps.Marker({
+              position: latlng,
+              draggable: false,
+              //마커 이동불가
+              zIndex : 100,
+              icon : {
+                  content: [
+                      '<div>',
+                      '   <div><img src="img/chac (1).png" /></div>',
+                      '</div>',
+                    ].join('')
+              }
+          });
+
+          var contentString = [
+              '<div class="iw_inner">',
+              '   <h3>서울특별시청</h3>',
+              '   <p>서울특별시 중구 태평로1가 31 | 서울특별시 중구 세종대로 110 서울특별시청<br>',
+              '       <img src="img/inchac.png" width="55" height="55" alt="서울시청" class="thumb" /><br>',
+              '       02-120 | 공공,사회기관 > 특별,광역시청<br>',
+              '       <a href="http://www.seoul.go.kr" target="_blank">www.seoul.go.kr/</a>',
+              '   </p>',
+              '</div>'
+          ].join('');
+
+          var infoWindow = new naver.maps.InfoWindow({
+              content: contentString,
+              disableAnchor : true,
+              borderWidth : 1,
+              maxWidth : 300
+
+          });
+          
+      infoWindows.push(infoWindow);
+      markers.push(marker);
+  }
+  
+
+
+  var htmlMarker1 = {
+          content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:12px;color:white;text-align:center;font-weight:bold;background:url(img/cluster-marker-1.png);background-size:contain;"></div>',
+          size: N.Size(40, 40),
+          anchor: N.Point(20, 20)
+      },
+      htmlMarker2 = {
+          content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:12px;color:white;text-align:center;font-weight:bold;background:url(img/cluster-marker-2.png);background-size:contain;"></div>',
+          size: N.Size(40, 40),
+          anchor: N.Point(20, 20)
+      },
+      htmlMarker3 = {
+          content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:12px;color:white;text-align:center;font-weight:bold;background:url(img/cluster-marker-3.png);background-size:contain;"></div>',
+          size: N.Size(40, 40),
+          anchor: N.Point(20, 20)
+      },
+      htmlMarker4 = {
+          content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:12px;color:white;text-align:center;font-weight:bold;background:url(img/cluster-marker-4.png);background-size:contain;"></div>',
+          size: N.Size(40, 40),
+          anchor: N.Point(20, 20)
+      },
+      htmlMarker5 = {
+          content: '<div style="cursor:pointer;width:40px;height:40px;line-height:19px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(img/cluster-marker-5.png);background-size:contain; background-repeat: no-repeat; "></div>',
+          size: N.Size(40, 40),
+          anchor: N.Point(20, 20)
+      };
+
+  var markerClustering = new MarkerClustering({
+      minClusterSize: 1,
+      //클러스터로 표시되는 최소숫자
+      maxZoom: 12,
+      //어디까지 줌땡기면 클러스터 표시 <-> 마커표시로 바뀔것인가
+      map: map,
+      markers: markers,
+      disableClickZoom: false,
+      gridSize: 120,
+      icons: [htmlMarker1, htmlMarker2, htmlMarker3, htmlMarker4, htmlMarker5],
+      indexGenerator: function(count) {
+          var index = 0;
+
+          if (count >= 100 && count < 200) {
+              index = 1;
+          } else if (count >= 200 && count < 500) {
+              index = 2;
+          } else if (count >= 500 && count < 1000) {
+              index = 3;
+          } else if (count >= 1000) {
+              index = 4;
+          }
+
+          return index;
+      },
+      stylingFunction: function(clusterMarker, count) {
+          $(clusterMarker.getElement()).find('div:first-child').text(count);
+          
+      }
+
+
+  });
+
+  naver.maps.Event.addListener(map, 'zoom_changed', function() {
+  updateMarkers(map, markers);
+
+  });
+
+  naver.maps.Event.addListener(map, 'dragend', function() {
+      updateMarkers(map, markers);
+  });
+
+function updateMarkers(map, markers) {
+
+  var mapBounds = map.getBounds();
+  var marker, position;
+
+  for (var i = 0; i < markers.length; i++) {
+
+      marker = markers[i]
+      position = marker.getPosition();
+
+      if (mapBounds.hasLatLng(position)) {
+          showMarker(map, marker);
+      } else {
+          hideMarker(map, marker);
+      }
+      if(i == 100) break;
+      //데이터갯수가 많으면 멈춤
+  }
+}
+
+function showMarker(map, marker) {
+
+  if (marker.setMap()) return;
+  marker.setMap(map);
+}
+
+function hideMarker(map, marker) {
+
+  if (!marker.setMap()) return;
+  marker.setMap(null);
+}
+
+
+function getClickHandler(seq) {
+  return function(e) {
+      var marker = markers[seq],
+          infoWindow = infoWindows[seq];
+
+      if (infoWindow.getMap()) {
+          infoWindow.close();
+      } else {
+          infoWindow.open(map, marker);
+      }
+  }
+}
+
+for (var i=0, ii=markers.length; i<ii; i++) {
+  naver.maps.Event.addListener(markers[i], 'click', getClickHandler(i));
+}
+
+
+
+  var text; 
+  $(".img img").mouseenter(function(e){
+    text = $(e.target).parent().parent().next().next().text();
+    $(e.target).parent().parent().next().next().text("들어가서 확인하기");
+  });
+
+  $(".img img").mouseleave(function(e){
+    $(e.target).parent().parent().next().next().text(text);
+  });
+  
+});
+  
+
+  
+</script>
+</body>
+</html>

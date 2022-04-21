@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" th:href="@{/css/message.css}">
+
+
+</head>
+<body>
+
+    <div class="box">
+        <h3 class="title">메시지보내기</h3>
+        <h4 class="receiver">TO.계란후라이 <!-- 받는사람 --></h4>
+
+        <div class="innerbox1">
+            <textarea class="textarea" name="dm_sendCon" id="" cols="45" rows="18" ></textarea>
+            <input type="hidden" name="dm_sendDate">
+        </div>
+        <div class="innerbottom">
+            <button type="button" class="messageBtn">보내기</button>
+            <button type="button" class="messageBtn" onclick="location.href='messageList'">목록으로</button>
+        </div>
+    </div>
+
+    
+</body>
+</html>

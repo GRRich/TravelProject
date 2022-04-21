@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+    <link rel="stylesheet" th:href="@{/css/login_join.css}">
+</head>
+<body style="background-color: #FFDEAD;">
+
+    <div class="container-fluid text-center">    
+        <div class="row content text-center">
+          
+            <div class="col-sm-6 text-center" style="margin: 0 auto; float: none;"> 
+           
+                <div class="joinheader">
+                    <div class="top">
+                        <strong>아이디/비밀번호 찾기</strong>
+                        <p><button type="button" onclick="location.href='userlogin.html'">로그인</button></p>
+                    </div>
+                    
+                    <hr>
+                
+                    <div class="findid">
+                        <form method="post">
+                         <input type="text" placeholder="이름" name="user_name" >
+                         <input type="text" placeholder="가입한 핸드폰번호" name="user_phone">
+                         <button type="submit" id="idBtn">아이디 찾기</button>
+                         <!-- submit -->
+                        </form>
+                        <div class="finded">
+                            <!-- select user_id from USER 
+                                where user_name='홍길동' and 
+                                      user_phone='000-0000-0000'-->
+                            <p>홍길동 님의 아이디는</p>
+                            <p><strong>kkk123</strong> 입니다</p>
+                            <!-- findid에서 값이 넘어오면 
+                                findid display none
+                                finded display block-->
+                        </div>
+                 
+                    </div>
+
+                    <hr>
+
+                    <div class="findpw">
+                        <form action="findPw.html" method="post">
+                         <input type="text" placeholder="이름" name="user_name" >
+                         <input type="text" placeholder="아이디" name="user_id">
+                         <input type="text" placeholder="가입한 핸드폰번호" name="user_phone">
+                         <button type="button" id="pwBtn">비밀번호 찾기</button>
+                         <!-- submit -->
+                        </form>
+                        <div class="finded">
+                            <!-- select user_pw from USER 
+                                where user_name='홍길동' and
+                                      user_id = '~~~~' and 
+                                      user_phone='000-0000-0000' -->
+                    
+                            <p>홍길동 님의 비밀번호는</p>
+                            <p><strong>~~~~~~</strong> 입니다</p>
+                            <!-- findid에서 값이 넘어오면 
+                                findid display none
+                                finded display block-->
+                        </div>
+                    </div>
+                </div>
+                  
+            </div>
+      
+        </div>
+    </div>
+
+            
+</body>
+</html>
+    

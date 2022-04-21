@@ -53,3 +53,18 @@ LEFT OUTER JOIN (
 ON B.PROD_CATEGORY = C.CATEGORY_KEY   
 WHERE RN > 0 AND RN <= 10;
 
+
+
+############################상품 업로드 ###############################
+CREATE TABLE PRODUCT_UPLOAD(
+	UPLOAD_NO INT PRIMARY KEY AUTO_INCREMENT, # PK
+    FILENAME VARCHAR(100) NOT NULL, #실제 파일명
+    FILEPATH VARCHAR(100) NOT NULL, #220407형태의 폴더명
+    UUID VARCHAR(50) NOT NULL, 		#파일이름앞에 들어가는 랜덤값
+    REGDATE TIMESTAMP DEFAULT NOW(),
+    PROD_ID INT, ## FK
+    PROD_WRITER VARCHAR(20) ##FK(편의성을 위한 FK)
+);
+
+
+

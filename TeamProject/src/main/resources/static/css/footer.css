@@ -1,0 +1,21 @@
+#footer > li{list-style: none;}
+#footer > h2, h3, span, a{color: black;}
+#footer > h3, h2{margin: 0;}
+#footer {
+    margin-top: 50px;
+    border-top: 1px solid #777
+}
+.row{
+    margin-top: 30px;
+}
+.footer_logo{
+    padding: 0;
+}
+.footer_logo img{
+    width: 35px;
+    height: 35px;
+}
+.fl_left{padding: 0;}
+.copyright-menu > li{
+    display: inline;
+}

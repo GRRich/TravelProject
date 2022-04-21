@@ -1,10 +1,15 @@
 package com.coding404.myweb.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.coding404.myweb.command.CategoryVO;
@@ -17,6 +22,14 @@ public class AjaxController {
 	//프로덕트 서비스 영역으로 연결
 	@Autowired
 	ProductService productService;
+	
+	
+	//파일업로드 경로
+	@Value("${project.upload.path}")
+	private String uploadpath;
+	
+	
+	
 	
 	//카테고리 로드
 	@GetMapping("/getCategory")
@@ -47,6 +60,30 @@ public class AjaxController {
 		
 		
 		return list;
+	}
+	
+	
+	//이미지 데이터 맵핑
+	@GetMapping("/display")
+	public byte[] display(@RequestParam("filename") String filename,
+						  @RequestParam("uuid") String uuid,
+						  @RequestParam("filepath") String filepath) {
+		
+		//System.out.println(filepath + "\\" + uuid + "_" + filename);
+		
+		
+		File file = new File(uploadpath + "\\" + filepath + "\\" + uuid + "_" + filename);
+		
+		byte[] result = null;
+		try {
+			//경로의 파일을 읽어서 바이트 배열형으로 파일정보를 반환
+			result = FileCopyUtils.copyToByteArray(file);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 	
 	

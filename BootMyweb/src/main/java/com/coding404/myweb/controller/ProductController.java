@@ -2,6 +2,7 @@ package com.coding404.myweb.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -15,8 +16,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.coding404.myweb.command.ProductUploadVO;
 import com.coding404.myweb.command.ProductVO;
 import com.coding404.myweb.product.ProductService;
 import com.coding404.myweb.util.Criteria;
@@ -63,9 +66,13 @@ public class ProductController {
 	}
 	
 	
-	
-	
-	
+	/*
+	 * 이미지 데이터 처리방법
+	 * 1. 업로드 테이블의 이미지를 select
+	 * 2. 화면에 반복문으로 img태그의 src속성에 파일값 처리
+	 * 3. restController에 이미지 정보를 반환하는 메서드 생성
+	 */
+		
 	//상세화면 - 화면에서는 prod_id를 넘긴다
 	@GetMapping("/productDetail")
 	public String productDetail(@RequestParam("prod_id") int prod_id,
@@ -75,6 +82,10 @@ public class ProductController {
 		ProductVO prodVO = productService.getDetail(prod_id);
 		model.addAttribute("prodVO", prodVO);
 		
+		//이미지 데이터를 셀렉팅
+		ArrayList<ProductUploadVO> list = productService.getDetailImg(prod_id);
+		model.addAttribute("prodImg", list);
+		
 		
 		return "product/productDetail";
 	}
@@ -82,12 +93,30 @@ public class ProductController {
 	//상품등록 폼
 	@PostMapping("/productForm")
 	public String productForm(ProductVO vo,
-							  RedirectAttributes RA ) {
+							  RedirectAttributes RA,
+							  @RequestParam("file") List<MultipartFile> list) { //파일데이터 처리
 		
+		//파일 확인(form형식을 multipart타입으로 반드시 선언)
+//		for(MultipartFile f : list) {
+//			System.out.println(f.isEmpty()); //비어있다면 true
+//			System.out.println(f.getContentType()); //파일의 타입
+//		}
 		
-		System.out.println(vo.toString());
+		//1. 빈형태로 넘어오는 이미지는 제거
+		list = list.stream().filter( (f) -> f.isEmpty() == false).collect( Collectors.toList());
+		//2. 업로드된 확장자가 이미지만 가능하도록 처리
+		for(MultipartFile f : list) {
+			if(f.getContentType().contains("image") == false ) { //이미지가 아닌경우
+				RA.addFlashAttribute("msg", "jpg, png, jpeg이미지형식만 등록가능합니다");
+				return "redirect:/product/productList";				
+			}
+		}
+		
+		//3. 파일업로드 코드는 서비스영역으로 위임
 		//vo를 등록
-		int result = productService.regist(vo);
+		//int result = productService.regist(vo);
+		int result = productService.regist(vo, list);
+		
 		
 		if(result == 1) { //성공
 			RA.addFlashAttribute("msg", vo.getProd_name() + "이 정상 등록되었습니다" );

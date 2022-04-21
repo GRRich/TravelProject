@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+   	<th:block th:replace="~{/include/header :: commoncss }"></th:block>
+  
+    <link rel="stylesheet" th:href="@{/css/mypage.css}">
+   
+
+   
+</head>
+<body>
+
+ <th:block th:replace="~{/include/header :: h_include }"></th:block>
+ 
+   <form action="#" method="#">
+      <div class="container-fluid text-center">    
+        <div class="row content text-center">
+            <div class="col-sm-6 text-center" style="margin: 0 auto; float: none;"> 
+              <div class="userpage">
+           
+                <div class="userTable" >
+                  <table style="width: 100%;">
+                    <h2 style="margin-bottom: 20px; text-align: left;">회원정보/수정</h2>
+                      <tr>
+                        <th class="title">아이디</th>
+                          <td class="info">
+                            <strong>kkk123</strong>
+                          </td>
+                        </tr>
+                      
+                        <tr>
+                          <th class="title">현재비밀번호</th>
+                          <td class="info">
+                            <!-- 현재비밀번호 일치해야 변경가능-->
+                            <input type="password" placeholder="현재비밀번호" >
+                          </td>
+                        </tr>
+                        
+                        <tr>
+                          <th class="title">새 비밀번호</th>
+                          <td class="info">
+                              <input type="password" placeholder="새 비밀번호" name="user_pw">
+                            </td>
+                      </tr>
+  
+                      <tr>
+                        <th class="title">새 비밀번호 확인</th>
+                          <td class="info">
+                              <input type="password" placeholder="새 비밀번호 확인" >
+                            </td>
+                      </tr>
+                      
+                      <tr>
+                          <th class="title">이름</th>
+                          <td class="info">
+                            <input type="text" placeholder="홍길동" readonly>
+                            <!-- 변경x -->
+                          </td>
+                      </tr>
+                      
+                      <tr>
+                        <th class="title">나이</th>
+                          <td class="info">
+                              <input type="text" placeholder="28" name="user_age" readonly>
+                              <!-- 변경x -->
+                            </td>
+                      </tr>
+  
+                      <tr>
+                          <th class="title">성별</th>
+                          <td class="info">
+                              <input type="radio">남자
+                              <input type="radio">여자
+                              <!-- 변경x -->
+                          </td>
+                      </tr>
+                        <!-- 성별/관심사 checked -->
+                      <tr>
+                          <th class="title">관심사</th>
+                          <td class="info">
+                              <input type="checkbox" name="user_hobby">여행
+                              <input type="checkbox" name="user_hobby">요리
+                              <input type="checkbox" name="user_hobby">게임
+                              <input type="checkbox" name="user_hobby">독서
+                              <input type="checkbox" name="user_hobby">etc..
+                          </td>
+                      </tr>
+  
+                      <tr>
+                          <th class="title">연락처</th>
+                          <td class="info">
+                              <input type="text" placeholder="000-0000-0000" name="user_phone">
+                            </td>
+                      </tr>            
+                    </table>
+                  
+                    <div class="infoBottom">
+                      <button type="button" class="save">저장</button>
+                      <!-- submit-->
+                          <button type="button" class="out" onclick="location.href='myPage'">나가기</button>
+                  </div>
+            </div>
+
+                
+            </div>
+        </div>  
+      </div>
+    </div>
+    </form>
+<th:block th:replace="~{/include/footer :: f_include }"></th:block>
+
+</body>
+</html>

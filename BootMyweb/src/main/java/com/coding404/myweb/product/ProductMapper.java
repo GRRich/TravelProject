@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.coding404.myweb.command.CategoryVO;
+import com.coding404.myweb.command.ProductUploadVO;
 import com.coding404.myweb.command.ProductVO;
 import com.coding404.myweb.util.Criteria;
 
@@ -13,6 +14,8 @@ import com.coding404.myweb.util.Criteria;
 public interface ProductMapper {
 
 	public int regist(ProductVO vo); //등록
+	public int registFile(ProductUploadVO vo); //파일등록
+	
 	//public ArrayList<ProductVO> getList(); //목록
 	public ArrayList<ProductVO> getList(Criteria cri); //목록
 	public int getTotal(Criteria cri); //전체게시글 수
@@ -25,6 +28,6 @@ public interface ProductMapper {
 	public ArrayList<CategoryVO> getCategory(); //첫번째 카테고리
 	public ArrayList<CategoryVO> getCategoryChild(CategoryVO vo);// 두,세번째 카테고리
 
-	
+	public ArrayList<ProductUploadVO> getDetailImg(int prod_id); //이미지 처리
 }
 

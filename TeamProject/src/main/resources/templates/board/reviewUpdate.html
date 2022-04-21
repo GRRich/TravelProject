@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=kb9jfea4wi&submodules=geocoder"></script>
+    <script src="js/map.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/review.css">
+
+    
+
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="warp_inner">
+            <div class="right_content">
+                <div class="midiaq">
+                    <form name="#####" action="#####" method="post">
+                        <div class="full_collum collum">
+                            <ul>
+                                <li class="collum_tit">
+                                    <h2>리뷰수정</h2>
+
+                                    <span class="showtoggle minus"></span>
+                                    <ul>
+                                        <li>
+                                            <table cellpadding="0" cellspacing="0" class="board_basic_view" width="100%;">
+                                                <tr>
+                                                    <th>등록일</th>
+                                                    <td colspan="5">
+                                                        <input type="text" class="datepicker" name="review_regDate" readonly placeholder="날짜선택">
+                                                        <!-- 변경x -->
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>아이디</th>
+                                                    <td><input type="text" class="inputw150" name="review_writer" value="" readonly></td>
+                                                    <!-- 변경x -->
+                                                </tr>
+
+                                                <tr>
+                                                    <th>카테고리</th>
+                                                    <td>
+                                                        <div class="category">
+                                                            <div class="category_list">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>지역</th>
+                                                    <td>
+                                                        <div class="inputmap">
+                                                            <div class="regist">
+                                                                <div class="search" style>
+                                                                    <input id="address" type="text" placeholder="검색할 주소" value="서울시 용산구 동자동">
+                                                                    <input id="submit" type="button" value="주소 검색">
+                                                                    <input type="text" class="output" disabled style="width: 400px;">
+                                                                    <input type="hidden" id="lat" name="review_lat">
+                                                                    <input type="hidden" id="lng" name="review_lng">
+                                                                </div>
+                                                                <div id="map" style="width:100%;height:400px;padding:0;margin:0;"></div>
+                                                            </div>
+                                                            <div>
+
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>제목</th>
+                                                    <td colspan="5"><input type="text" class="inputw99p" name="review_title"></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>사진등록</th>
+                                                    <td>
+                                                        <div class="filebox preview-image">
+                                                            <div class="left">
+                                                                <label class="upload-display" for="a_file">
+                                                                    <span class="upload-thumb-wrap">
+                                                                        <img class="upload-thumb" src="@{/img/plus_btn.png}">
+                                                                    </span>
+                                                                </label>
+                                                                <input class="upload-name" value="파일선택" disabled="disabled">
+                                                                <input type="file" name="file" id="a_file" class="upload-hidden">
+                                                            </div>
+                                                            <div class="left">
+                                                                <label class="upload-display" for="b_file">
+                                                                    <span class="upload-thumb-wrap">
+                                                                        <img class="upload-thumb" src="@{/img/plus_btn.png}">
+                                                                    </span>
+                                                                </label>
+                                                                <input class="upload-name" value="파일선택" disabled="disabled">
+                                                                <input type="file" name="file" id="b_file" class="upload-hidden">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <th>내용</th>
+                                                    <td colspan="5">
+                                                        <div>
+                                                            <textarea  class="inputw99p" name="review_content" style="height: 200px;"></textarea>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                            <div class="btn_area">
+                                                <input type="button" class="save" value="저장">
+                                            	<input type="button" class="save" value="삭제">
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        $(".datepicker").val($.datepicker.formatDate('yy-mm-dd', new Date()));
+        console.log(new Date());
+    
+    
+    
+    </script>
+                
+    
+</body>
+</html>

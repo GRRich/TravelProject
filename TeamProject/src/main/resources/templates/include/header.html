@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <th:block th:fragment="commoncss">
+   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+  	<link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
+  	<link rel="stylesheet" type="text/css" th:href="@{/css/footer.css}">
+  	<script th:src="@{/js/header_menu.js}"></script>
+  	<script th:src="@{/js/header_slide.js}"></script>
+  	<link th:href="@{https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap}" rel="stylesheet">
+  	<script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
+    </th:block>
+   
+
+
+</head>
+
+<body>
+<th:block th:fragment="h_include">
+
+  <header id="header">
+  <div class="header_area box_inner">
+      <h1><a th:href="@{/main}">로고</a></h1>
+      <div class="header_cont">
+          <ul class="util">
+              <li><a th:href="@{/user/userLogin}">로그인</a></li>
+              <li><a th:href="@{/user/userJoin}">회원가입</a></li>
+          </ul>
+
+          <ul class="gnb" style="width: 640px;">
+              <li>
+                  <a href="#">여행정보</a>
+              </li>
+              <li>
+                  <a href="#">추천여행</a>
+              </li>
+              <li>
+                  <a href="#">고객센터</a>
+              </li>
+              <li>
+                  <a href="#">커뮤니티</a>
+              </li>
+          </ul>
+
+          <div class="gnb_depth">
+              <div class="gnb_depth_sub">
+              <ul class="submenu_list">
+                  <li><a href="#">국내</a></li>
+                  <li><a href="#">해외</a></li>
+              </ul>
+              <ul class="submenu_list">
+                  <li><a href="#">맛집</a></li>
+                  <li><a href="#">명소</a></li>
+                  <li><a href="#">놀거리</a></li>
+              </ul>
+              <ul class="submenu_list">
+                  <li><a href="#">QnA</a></li>
+                  <li><a href="#">계정관리</a></li>
+              </ul>
+              <ul class="submenu_list">
+                  <li><a th:href="@{/board/reviewBoard}">리뷰게시판</a></li>
+                  <li><a th:href="@{/board/freeBoard}">자유게시판</a></li>
+                  <li><a th:href="@{/board/debateBoard}">토론게시판</a></li>
+              </ul>
+          </div>
+          </div>
+      </div>
+  </div>
+</header>
+
+ <div id="container">
+  <div class="main_rolling_pc">
+      <div class="visualRoll">
+          <ul class="viewImgList">
+              <li class="imglist0">
+                  <div class="roll_content">
+                      <a href="javascript:;">
+                      </a>
+                      <p class="roll_txtline">BE TOURIST FOR BETTER LIFE</p>
+                  </div>
+              </li>
+              <li class="imglist1">
+                  <div class="roll_content">
+                      <a href="javascript:;">
+                      </a>
+                      <p class="roll_txtline">BE TOURIST FOR BETTER LIFE</p>
+                  </div>
+              </li>
+              <li class="imglist2">
+                  <div class="roll_content">
+                      <a href="javascript:;">
+                      </a>
+                      <p class="roll_txtline">BE TOURIST FOR BETTER LIFE</p>
+                  </div>
+              </li>
+          </ul>
+
+          <div class="rollbtnArea">
+              <ul class="rollingbtn">
+                  <li class="seq butt0"><a href="#butt"><img th:src="@{/img/btn_rollbutt_on.png}" alt="1번" /></a></li>
+                  <li class="seq butt1"><a href="#butt"><img th:src="@{/img/btn_rollbutt_off.png}" alt="2번" /></a></li>
+                  <li class="seq butt2"><a href="#butt"><img th:src="@{/img/btn_rollbutt_off.png}" alt="3번" /></a></li>
+                
+              </ul>
+          </div>
+
+      </div>
+  </div>
+</div>
+</th:block>
+</body>
+
+</html>

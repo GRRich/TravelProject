@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<th:block th:replace="~{/include/header :: commoncss }"></th:block>
+    <link rel="stylesheet" th:href="@{/css/review.css}">
+
+</head>
+<body>
+	 <th:block th:replace="~{/include/header :: h_include }"></th:block>
+    <div class="wrap">
+        <div class="warp_inner">
+            <div class="right_content">
+                <div class="midiaq">
+                    <form name="#####" action="#####" method="post">
+                        <div class="full_collum collum">
+                            <ul>
+                                <li class="collum_tit">
+                                    <h2>리뷰상세</h2>
+
+                                    <span class="showtoggle minus"></span>
+                                    <ul>
+                                        <li>
+                                            <table cellpadding="0" cellspacing="0" class="board_basic_view" width="100%;">
+                                                <tr>
+                                                    <th>등록일</th>
+                                                    <td colspan="5">
+                                                        <span>2022-04-18</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>아이디</th>
+                                                    <td>
+                                                        계란후라이
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>카테고리</th>
+                                                    <td>
+                                                        <div class="category_detail">
+                                                            서울 > 서울 > 서울 
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>지역</th>
+                                                    <td>
+                                                        <div class="inputmap">
+                                                            <div>
+                                                                <span>주소~~~~~~~~~~~~~~~~~~~~~~~~~`</span>
+                                                            </div>
+                                                            <div>
+
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>제목</th>
+                                                    <td colspan="5">제주도 가고시퍼요~~~~</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>사진</th>
+                                                    <td>
+                                                        <div class="filebox preview-image">
+                                                            <div class="left">
+                                                                <label class="upload-display" for="a_file">
+                                                                    <span class="upload-thumb-wrap">
+                                                                        <img class="upload-thumb" th:src="@{/img/plus_btn.png}">
+                                                                    </span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="left">
+                                                                <label class="upload-display" for="b_file">
+                                                                    <span class="upload-thumb-wrap">
+                                                                        <img class="upload-thumb" src="@{/img/plus_btn.png}">
+                                                                    </span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <th>내용</th>
+                                                    <td colspan="5">
+                                                        <div>
+                                                            <div style="min-height: 300px;" >
+                                                                <textarea  class="inputw99p" name="review_content" style="height: 200px;" ></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                            <div class="btn_area">
+                                            	<input type="button" class="save" value="목록">
+                                                <input type="button" class="update" value="수정">
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+
+
+                </div>
+              </div>
+            </div>
+           </div>
+     <th:block th:replace="~{/include/footer :: f_include }"></th:block>
+</body>
+</html>

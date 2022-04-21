@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+<th:block th:fragment="f_include">
+    <footer id="footer">
+        <div class="container_footer">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <a href="#"><h2>TITLE</h2></a>
+                    <h3>FOLLOW US</h3>
+                    <ul class="footer_logo">
+                        <a href="https://www.instagram.com/"><img src="/img/instagram.png" alt=""></a>
+                        <a href="https://ko-kr.facebook.com/"><img src="/img/facebook.png" alt=""></a>
+                        <a href="https://www.youtube.com/"><img src="/img/youtube.png" alt=""></a>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <ul class="fl_left">
+                        <span>조원:권인우 김민석 김예솔 안기렬 채수병</span><br>
+                        <span>전화번호 : 02-561-1911 | 서울 강남구 테헤란로7길 7</span><br>
+                        <span>중앙정보처리학원 | 중앙정보기술인재개발원</span><br>
+                        <span>COPYRIGHT ⓒ 20220517.NET ALL RIGHT RESERVED</span>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-menu-r">
+                        <ul class="copyright-menu">
+                            <li><a href="#">고객지원</a></li>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">개인정보취급방침</a></li>
+                            <li><a href="#">문의사항</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </footer>
+  </th:block>
+</body>
+</html>

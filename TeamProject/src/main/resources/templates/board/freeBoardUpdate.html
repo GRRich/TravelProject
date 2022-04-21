@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="css/review.css">
+    
+
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="warp_inner">
+            <div class="right_content">
+                <div class="midiaq">
+                    <form name="#####" action="#####" method="post">
+                        <div class="full_collum collum">
+                            <ul>
+                                <li class="collum_tit">
+                                    <h2>자유게시판 수정</h2>
+
+                                    <span class="showtoggle minus"></span>
+                                    <ul>
+                                        <li>
+                                            <table cellpadding="0" cellspacing="0" class="board_basic_view1" width="100%;">
+                                                <tr>
+                                                    <th>등록일</th>
+                                                    <td colspan="5">
+                                                        <input type="text" class="datepicker" name="free_regDate" readonly placeholder="날짜선택">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>작성자</th>
+                                                    <td><input type="text" class="inputw150" name="free_writer" value="" readonly></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>제목</th>
+                                                    <td colspan="5"><input type="text" class="inputw99p" name="free_title"></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>내용</th>
+                                                    <td colspan="5">
+                                                        <div>
+                                                            <textarea  class="inputw99p" name="free_content" style="height: 200px;"></textarea>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                            <div class="btn_area">
+                                                <input type="button" class="save1" value="수정">
+                                            	<input type="button" class="save1" value="삭제">
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        $(".datepicker").val($.datepicker.formatDate('yy-mm-dd', new Date()));
+        console.log(new Date());
+    
+    
+    
+    </script>
+                
+    
+</body>
+</html>
