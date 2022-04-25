@@ -39,21 +39,21 @@ public class DebateServiceImpl implements DebateService {
 	}
 
 	@Override
-	public DebateVO getDetail(int debate_writer) {
-		// TODO Auto-generated method stub
-		return null;
+	public DebateVO getDetail(int debate_no) {
+		
+		return debateMapper.getDetail(debate_no);
 	}
 
 	@Override
 	public int update(DebateVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return debateMapper.update(vo);
 	}
 
 	@Override
-	public int delete(int debate_writer) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int delete(int debate_no) {
+		
+		return debateMapper.delete(debate_no);
 	}
 
 }

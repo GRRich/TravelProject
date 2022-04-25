@@ -27,4 +27,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	</select>
 	
+	<update id="update">
+		update DEBATE
+		set debate_title = #{debate_title},
+			debate_content = #{debate_content}
+		where debate_no = #{debate_no}
+	</update>
+	
+	<select id="getDetail" resultType="DebateVO">
+		select * from DEBATE
+		where debate_no = #{debate_no}
+	</select>
+	
+	<delete id="delete">
+		delete from DEBATE
+		where debate_no = #{debate_no}
+	</delete>
+	
 </mapper>

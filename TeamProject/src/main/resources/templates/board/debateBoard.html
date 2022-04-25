@@ -54,7 +54,7 @@
                         <tr th:each="vo, state : ${list}">
                            <td class="bno">[[${vo.debate_no}]]</td>
                            <td class="writer">[[${vo.debate_writer}]]</td>
-                           <td class="title"><a href="#">[[${vo.debate_title}]]</a></td>
+                           <td class="title"><a th:href="@{/board/debateUpdate(debate_no=${vo.debate_no} ) }">[[${vo.debate_title}]]</a></td>
                            <td th:text="${#temporals.format(vo.debate_regdate, 'yyyy-MM-dd')}" class="regdate"></td>
                         </tr>
                     </table>
